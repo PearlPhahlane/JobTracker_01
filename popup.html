@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Tracker</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div id="floatingPopup">
+        <div id="popupHeader">Job Tracker</div>
+        <div id="addJobView">
+            <!-- Add Job Form-->
+            <input type="text" id="jobTitleInput" placeholder="Job Title">
+            <textarea id="jobDescriptionInput" placeholder="job Description"></textarea>
+            <input type="url" id="jobLinkInput" placeholder="Job Link">
+            <select id="jobStatusInput">
+                <option value="Awaiting Response">Awaiting Response</option>
+                <option value="Successful">Successful</option>
+                <option value="Unsuccessful">Unsuccessful</option>
+            </select>
+            <button id="saveJob">Save Job</button>
+        </div>
+
+        <!-- Job List View: Where you will see the list of jobs added-->
+        <div id="jobListView">
+            <ul id="jobList"></ul>
+        </div>
+
+        <!-- Job Detail View: Where you will see the details added in the job form-->
+        <div id="jobDetailView">
+            <h3 id="jobTitle">Job Title</h3>
+            <p id="jobStatus">Job Status</p>
+            <p id="jobDescription">Job Description</p>
+            <a id="jobLink" href="#">Job Link</a>
+            <h4>Notes</h4>
+            <ul id="notesList"></ul>
+            <textarea id="noteInput" placeholder="Add note"></textarea>
+            <button id="saveNote">Save Note</button>
+            <button id="backToList">Back to List</button>
+        </div>
+    </div>
+    
+    <script src="popout.js"></script>
+</body>
+</html>
