@@ -1,0 +1,15 @@
+{
+    "manifest_version": 3,
+    "name": "Job Tracker",
+    "version": "1.0",
+    "description": "Manage and track your job applications hassel free",
+    "action": {
+        "default_title": "Open Job Tracker"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": ["storage", "tabs", "windows"],
+    "host_permissions": ["http://*/*", "https://*/*"] 
+
+}

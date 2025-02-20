@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 let popupWindowId = null;
 
 //listens for clicks on extension and checks whether popup is already open 
