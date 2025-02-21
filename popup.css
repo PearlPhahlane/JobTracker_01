@@ -7,6 +7,12 @@ body {
     background-color: #f4f4f4;
 }
 
+#popupHeader {
+    font-weight: 800;
+    font-size: larger;
+    padding-bottom: 10px;
+}
+
 button {
     margin-top: 10px;
     padding: 10px 20px;
