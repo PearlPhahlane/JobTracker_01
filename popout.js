@@ -272,7 +272,7 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 
     function deleteNote(jobId, noteIndex) {
-        if(confirm("Are you sure you want to delte this note?")) {
+        if(confirm("Are you sure you want to delete this note?")) {
             chrome.storage.local.get(["jobs"], function(data){
                 let jobs = data.jobs || [];
                 let job = jobs.find((j) =>j.id == jobId);
