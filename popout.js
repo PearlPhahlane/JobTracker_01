@@ -254,6 +254,24 @@ document.addEventListener("DOMContentLoaded", function(){
         });
     }
 
+    function editNote(jobId, noteIndex) {
+        chrome.storage.local.get(["jobs"], function(data) {
+            let jobs = data.jobs || [];
+            let job = jobs.find((j) => j.id == jobId);
+
+            if(job){
+                const newNote = prompt("Edit your note:", job.notes[noteIndex].note);
+                if(newNote !== null) {
+                    job.notes[note.Index].note = newNote;
+                    chrome.storage.local.set({jobs}, function () {
+                        loadJobNotes(job);
+                    });
+                }
+            }
+        });
+    }
+
+    
     
 
 
