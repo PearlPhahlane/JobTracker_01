@@ -282,11 +282,17 @@ document.addEventListener("DOMContentLoaded", function(){
                     chrome.storage.local.set({jobs}, function() {
                         loadJobNotes(job);
                     });
-
                 }
             });
         }
     }
+
+    //navigate back to job list
+    backToListBtn.addEventListener("click", function() {
+        showView("jobListView");
+    });
+
+    
 
     
 
