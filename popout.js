@@ -50,9 +50,21 @@ document.addEventListener("DOMContentLoaded", function(){
                         <button class="deleteBtn" title="Delete Job">❌</button>
                     </div>`;
                 jobList.appendChild(li);
-                
-            })
-        })
+
+                //add click event listner for view button
+                const viewBtn = li.querySelector(".viewBtn");
+                viewBtn.addEventListener("click", function () {
+                    showJobDetails(job.id);
+                });
+
+
+                //add click event listener for delete button
+                const deleteBtn = li.querySelector(".deleteBtn");
+                deleteBtn.addEventListener("click", function(){
+                    deleteJob(job.id);
+                });
+            });
+        });
     }
 
 
