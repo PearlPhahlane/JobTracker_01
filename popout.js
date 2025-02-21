@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function(){
                 jobLink.href = job.link;
                 jobLink.target = "_blank" //ensures that link will open in the browser in a new tab
 
-                loadJobMotes(job);
+                loadJobNotes(job);
 
 
                 //status dropdown
@@ -182,6 +182,29 @@ document.addEventListener("DOMContentLoaded", function(){
          });
     });
 
+    //show job details
+    jobList.addEventListener("click", function(e) {
+        if(e.target.classList.contains("viewBtn")){
+            const jobId = e.target.parentElement.dataset.id;
+            chrome.storage.local.get(["jobs"], function(data){
+                const job = data.jobs.find((j) => j.id == jobId);
+                if(job) {
+                    selectedJobId = job.id;
+                    document.getElementById("jobTitle").textContent = job.title;
+                    document.getElementById("jobStatus").textontent = `Status: ${job.status}`
+                    document.getElementById("jobDescription").innerHTML =
+                      job.description.replace(/\n/g, "<br>");
+                    document.getElementById("jobLink").href = job.link;
+                    loadJobNotes();
+
+                    history.pushState({ view: "jobDetailView"}, "", "#jobDetailView");
+                    showView("jobDetailView");
+                }
+            });
+        }
+    });
+
+    
 
    
 
