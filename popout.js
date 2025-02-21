@@ -28,6 +28,11 @@ document.addEventListener("DOMContentLoaded", function(){
         showView(addJobView);
     });
 
+    //Hide jobDetailView on Initial Load
+    jobDetailView.style.display = "none";
+
+    //stores the currently selected job ID
+    let selectedJobId = null;
     
 
 
