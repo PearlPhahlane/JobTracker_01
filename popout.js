@@ -19,9 +19,16 @@ document.addEventListener("DOMContentLoaded", function(){
     addJobButtonContainer.style.marginBottom = "10px";
     addJobButtonContainer.style.display = "none" //ensure that the button is initially hidden
     addJobButtonContainer.innerHTML - `
-        <button id="addNewJobBtn style="background-color: #4CAF50; color: White; 
-        padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer>Add New Job</button>`;
+        <button id="addNewJobBtn" style="background-color: #4CAF50; color: White; 
+        padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer">Add New Job</button>`;
     jobList.parentNode.insertBefore(addJobButtonContainer, jobList);
+
+    //select the above button and add event listner 
+    document.getElementById("addNewJobBtn").addEventListener("click", function(){
+        showView(addJobView);
+    });
+
+    
 
 
    
