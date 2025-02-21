@@ -149,7 +149,22 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     }
 
+    //Add job
+    saveJobBtn.addEventListener("click", function () {
+        const title = jobTitleInput.value.trim();
+        const description = jobDescriptionInput.value.trim();
+        const link = jobLinkInput.value.trim();
+        const status = jobStatusInput.value;
+
+        if(!title || !description || !link || !status) {
+            alert("Please fill in all fields.");
+            return;
+        }
+    })
+
     
+
+
 
    
 
