@@ -136,7 +136,20 @@ document.addEventListener("DOMContentLoaded", function(){
         });
     }
 
+    //function to delete a job
+    function deleteJob(jobId) {
+        if(confirm("Are you sure you want to delete this job?")){
+            chrome.storage.local.get([jobs], function(data) {
+                const jobs = data.jobs || [];
+                const updatedJobs = jobs.filter((job) => job.id != jobId);
+                chrome.storage.local.set({ jobs: updatedJobs }, function() {
+                    loadJobs(); //reload the list after deletion 
+                });
+            });
+        }
+    }
 
+    
 
    
 
