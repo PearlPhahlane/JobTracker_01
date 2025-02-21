@@ -33,7 +33,28 @@ document.addEventListener("DOMContentLoaded", function(){
 
     //stores the currently selected job ID
     let selectedJobId = null;
-    
+
+    //function to load jobs from storage
+    function loadJobs() {
+        chrome.storage.local.get(["jobs"], function(data){
+            jobList.innerHTML = "";
+            const jobs = data.jobs || [].sort((a, b) => new Date(b.date) - new Date(a.date)); //added jobs will appear in ascending order -latest first
+            jobs.forEach((job) => {
+                const li = document.createElement("li");
+                li.dataset.id = job.id;
+                li.innerHTML = `
+                    <strong>${job.title}</strong> (${job.date})&nbsp;&nbsp;
+                    <div class="job-status">Status: ${job.status}</div>
+                    <div class="job-actions">
+                        <button class="viewBtn" title="View Details">🔍</button>
+                        <button class="deleteBtn" title="Delete Job">❌</button>
+                    </div>`;
+                jobList.appendChild(li);
+                
+            })
+        })
+    }
+
 
 
    
