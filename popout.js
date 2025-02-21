@@ -78,7 +78,43 @@ document.addEventListener("DOMContentLoaded", function(){
                 document.getElementById("jobDescription").innerHTML = job.description.replace(/\n/g, "<br>");
                 document.getElementById("jobLink").href = job.link;
 
-                
+                //the link will open in a new tab and not on the popup window
+                const jobLink = document.getElementById("jobLink");
+                jobLink.href = job.link;
+                jobLink.target = "_blank" //ensures that link will open in the browser in a new tab
+
+                loadJobMotes(job);
+
+
+                //status dropdown
+                const statusDropdown = document.createElement("select");
+                statusDropdown.id = "statusDropdown";
+                ["Awaiting Response", "Successful", "Unsuccessful"].forEach(
+                    (status) => {
+                        const option = document.createElement("option");
+                        option.value = status;
+                        option.textContent = status;
+                        if (status === job.status) option.selected = true;
+                        statusDropdown.appendChild(option);
+                    }
+                );
+
+                //here we create an update button for the status dropdown selection
+                const updateStatusBtn = document.createElement("button");
+                updateStatusBtn.textContent = "Update Status";
+                updateStatusBtn.style.marginLeft = "10px";
+                updateStatusBtn.addEventListener("click", function() {
+                    updateJobStatus(statusDropdown.value);
+                });
+
+                //append to the job status section
+                const jobStatusContainer = document.getElementById("jobStatus");
+                jobStatusContainer.innerHTML = `Status: ${job.status}`;
+                jobStatusContainer.appendChild(statusDropdown);
+                jobStatusContainer.appendChild(updateStatusBtn);
+
+                history.pushState( { view: "jobDetailView" }, "", "#jobDetailView");
+                showView("jobDetailView");
             }
         })
     }
