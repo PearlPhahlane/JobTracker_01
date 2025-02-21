@@ -67,6 +67,22 @@ document.addEventListener("DOMContentLoaded", function(){
         });
     }
 
+    //function to show job details
+    function showJobDetails(jobId){
+        chrome.storage.local.get(["jobs"], function(data){
+            const job = data.jobs.find((j) => j.id == jobId);
+            if(job) {
+                selectedJobId = job.id;
+                document.getElementById("jobTitle").textContext = job.title;
+                document.getElementById("jobStatus").textContent = `Status: ${job.status}`;
+                document.getElementById("jobDescription").innerHTML = job.description.replace(/\n/g, "<br>");
+                document.getElementById("jobLink").href = job.link;
+
+                
+            }
+        })
+    }
+
 
 
    
