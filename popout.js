@@ -119,6 +119,23 @@ document.addEventListener("DOMContentLoaded", function(){
         })
     }
 
+    //function to update the job status in chrome storage
+    function updateJobStatus(newStatus){
+        chrome.storage.local.get(["jobs"], function(data){
+            const jobs = data.jobs || [];
+            const job = jobs.find((j) => j.id == selectedJobId);
+            if(job) {
+                job.status = newStatus;
+                chrome.storage.local.set({ jobs }, function() {
+                    //refresh UI to show updated status
+                    document.getElementById("jobStatus").innerHTML = 
+                    `Status: ${newStatus}`;
+                    alert("Job status updated successfully!");
+                });
+            }
+        });
+    }
+
 
 
    
