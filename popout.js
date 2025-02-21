@@ -160,9 +160,32 @@ document.addEventListener("DOMContentLoaded", function(){
             alert("Please fill in all fields.");
             return;
         }
-    })
 
-    
+         const job = {
+           id: Date.now(),
+           title,
+           description,
+           link,
+           status,
+           date: new Date().toLocaleDateString(),
+           notes: [],
+         };
+
+         chrome.storage.local.get(["jobs"], function (data) {
+            const jobs = data.jobs || [];
+            jobs.unshift(job); //ensures new jobs are added to beginning of list
+            chrome.storage.local.set({jobs}, function(){
+                clearInputFields();
+                showView("jobListView") //switch to list view after clicking save button
+                loadJobs(); //refresh the job list
+            });
+         });
+    });
+
+
+   
+
+
 
 
 
