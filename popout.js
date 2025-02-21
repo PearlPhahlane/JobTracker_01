@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 document.addEventListener("DOMContentLoaded", function(){
 
     //select DOM elements 
@@ -18,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function(){
     const addJobButtonContainer = document.createElement('div');
     addJobButtonContainer.style.marginBottom = "10px";
     addJobButtonContainer.style.display = "none" //ensure that the button is initially hidden
-    addJobButtonContainer.innerHTML - `
+    addJobButtonContainer.innerHTML = `
         <button id="addNewJobBtn" style="background-color: #4CAF50; color: White; 
         padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer">Add New Job</button>`;
     jobList.parentNode.insertBefore(addJobButtonContainer, jobList);
@@ -262,7 +263,7 @@ document.addEventListener("DOMContentLoaded", function(){
             if(job){
                 const newNote = prompt("Edit your note:", job.notes[noteIndex].note);
                 if(newNote !== null) {
-                    job.notes[note.Index].note = newNote;
+                    job.notes[noteIndex].note = newNote;
                     chrome.storage.local.set({jobs}, function () {
                         loadJobNotes(job);
                     });
@@ -292,22 +293,35 @@ document.addEventListener("DOMContentLoaded", function(){
         showView("jobListView");
     });
 
+    //show appropriate view 
+    function showView(view){
+        jobListView.style.display = view === "jobListView" ? "block" : "none";
+        addJobView.style.display = view === "addJobView" ? "block" : "none";
+        jobDetailView.style.display = view === "jobDetailView"? "block" : "none";
+
+        //show or hide add new button based on the current view
+
+        addJobButtonContainer.style.display = view === "jobListView" ? "block" : "none";
+
+        //scroll to the top of the page when changing views
+
+        window.scrollTo(0,0);
+    }
+
+    //clear input fields 
+    function clearInputFields() {
+        jobTitleInput.value = "";
+        jobDescriptionInput.value = "";
+        jobLinkInput.value = "";
+        jobStatusInput.value = "";
+        jobStatusInput.value = "Awaiting Response";
+    }
+
+
+
+    //initial load
+    loadJobs();
     
-
-    
-
-
-
-})
-
-   
-
-
-
-
-
-   
-
 
 
 
