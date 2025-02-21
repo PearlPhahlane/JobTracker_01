@@ -204,7 +204,61 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     });
 
+    //save note
+    saveNoteBtn.addEventListener("click", function() {
+        const note = noteInput.value.trim();
+        if(note) {
+            chrome.storage.local.get(["jobs"], function(data){
+                const jobs = data.jobs || [];
+                const job = jobs.find((j) => j.id == selectedJobId);
+                if(job) {
+                    job.notes.push({note, data: new Date().toLocaleString()});
+                    chrome.storage.local.set({jobs}, function() {
+                        loadJobNotes(jobs);
+                        noteInput.value = "";
+                    });
+                }
+
+            });
+        
+        }
+    });
+
+    //Load job notes
+    function loadJobNotes(job) {
+        const notesList = document.getElementById("notesList");
+        notesList.innerHTML = "";
+
+        job.notes.forEach((noteData, index) => {
+            const li = document.createElement("li");
+            li.innerHTML = `
+            <div class="note-content">
+            <span class="note-text">${noteData.note}</span>
+            <span class="note-date">${noteData.date}</span>
+            </div>
+            <button class="editNoteBtn" data-index"${index}">✏️</button>
+            <button class="deleteNoteBtn" data-index"${index}">🗑</button>
+            `;
+
+            notesList.appendChild(li);
+
+            //event listeners for edit and delete
+
+            li.querySelector(".editNoteBtn").addEventListener("click", function() { 
+                editNote(job.id, index);
+            });
+
+            li.querySelector(".deleteNoteBtn").addEventListener("click", function() {
+                deleteNote(job.id, index);
+            });
+        });
+    }
+
     
+
+
+
+})
 
    
 
