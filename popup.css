@@ -48,6 +48,11 @@ textarea {
     height: 100px;
 }
 
+.viewBtn, .deleteBtn {
+    display: block;
+
+}
+
 #addJobView, #jobListView, #jobDetailView {
     display: block;
     margin: 20px;

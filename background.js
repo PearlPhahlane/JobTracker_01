@@ -22,7 +22,6 @@ chrome.action.onClicked.addListener(() => {
 chrome.runtime.onStartup.addListener(() => {
   console.log(`onStartup()`);
 });
-
 //kept on getting error about the length
 //Ensure that tab/window user is trying to interact with exists 
 
