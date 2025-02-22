@@ -4,11 +4,12 @@
     "version": "1.0",
     "description": "Manage and track your job applications hassel free",
     "action": {
-        "default_title": "Open Job Tracker"
+        "default_popup": "popup.html"
     },
     "background": {
         "service_worker": "background.js"
     },
+    
     "permissions": ["storage", "tabs", "windows"],
     "host_permissions": ["http://*/*", "https://*/*"] 
 

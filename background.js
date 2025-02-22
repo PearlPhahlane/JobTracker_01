@@ -3,11 +3,11 @@ let popupWindowId = null;
 
 //listens for clicks on extension and checks whether popup is already open 
 //via popupWindowId, focuses existing popup if not it opens a new one
-chrome.action.onClicked.addListner(() => {
+chrome.action.onClicked.addListener(() => {
     if (popupWindowId) {
         chrome.windows.get(popupWindowId, (win) => {
             if (win) {
-                Chrome.windows.update(popupWindowId, { focused: true});
+                chrome.windows.update(popupWindowId, { focused: true});
             } else {
                 openPopup();
             }

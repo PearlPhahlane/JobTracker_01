@@ -47,3 +47,39 @@ input, select, textarea {
 textarea {
     height: 100px;
 }
+
+#addJobView, #jobListView, #jobDetailView {
+    display: block;
+    margin: 20px;
+
+}
+
+#jobListView {
+    padding-bottom: 10px;
+}
+
+#jobDetailView {
+    width: 80%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+#jobDescription {
+    white-space: normal;
+    word-wrap: break-word;
+    width: 100%;
+    max-width: 100%;
+    display: block;
+    padding: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+#notesList {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+}
