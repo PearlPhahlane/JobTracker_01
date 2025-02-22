@@ -17,15 +17,22 @@ chrome.action.onClicked.addListener(() => {
     }
 });
 
+
+//This cleared the message: service worker in active
+chrome.runtime.onStartup.addListener(() => {
+  console.log(`onStartup()`);
+});
+
+//kept on getting error about the length
 //Ensure that tab/window user is trying to interact with exists 
 
-chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
+/*chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
     if (tabs.length > 0) {
         //performs actions with tab
     } else {
         console.log("no active tab found");
     }
-});
+});*/
 
 
 //responsible for opening a new popup window

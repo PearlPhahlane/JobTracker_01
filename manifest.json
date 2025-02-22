@@ -4,7 +4,7 @@
     "version": "1.0",
     "description": "Manage and track your job applications hassel free",
     "action": {
-        "default_popup": "popup.html"
+      "default_title": "Open Job Tracker"
     },
     "background": {
         "service_worker": "background.js"
