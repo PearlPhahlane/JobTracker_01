@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function(){
     function loadJobs() {
         chrome.storage.local.get(["jobs"], function(data){
             jobList.innerHTML = "";
-            const jobs = data.jobs || [].sort((a, b) => new Date(b.date) - new Date(a.date)); //added jobs will appear in ascending order -latest first
+            const jobs = (data.jobs || []).sort((a, b) => new Date(b.date) - new Date(a.date)); //added jobs will appear in ascending order -latest first
             jobs.forEach((job) => {
                 const li = document.createElement("li");
                 li.dataset.id = job.id;
@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function(){
                 history.pushState( { view: "jobDetailView" }, "", "#jobDetailView");
                 showView("jobDetailView");
             }
-        })
+        });
     }
 
     //function to update the job status in chrome storage
@@ -241,8 +241,8 @@ document.addEventListener("DOMContentLoaded", function(){
                 <span class="note-date">${noteData.date}</span>
                 <br>
             </div>
-            <button class="editNoteBtn" data-index"${index}">✏️</button>
-            <button class="deleteNoteBtn" data-index"${index}">🗑</button>
+            <button class="editNoteBtn" data-index="${index}">✏️</button>
+            <button class="deleteNoteBtn" data-index="${index}">🗑</button>
             `;
 
             notesList.appendChild(li);
@@ -325,8 +325,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
     //initial load
     loadJobs();
-    
-
 
 
 });
