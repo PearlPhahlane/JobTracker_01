@@ -88,3 +88,11 @@ textarea {
     font-size: 14px;
     line-height: 1.5;
 }
+
+.note-content {
+    display: flex;
+}
+
+.editNoteBtn, .deleteNoteBtn {
+    margin-left: 5px;
+}

@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     //select the above button and add event listner 
     document.getElementById("addNewJobBtn").addEventListener("click", function(){
-        showView(addJobView);
+        showView("addJobView");
     });
 
     //Hide jobDetailView on Initial Load
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function(){
             const job = data.jobs.find((j) => j.id == jobId);
             if(job) {
                 selectedJobId = job.id;
-                document.getElementById("jobTitle").textContext = job.title;
+                document.getElementById("jobTitle").textContent = job.title;
                 document.getElementById("jobStatus").textContent = `Status: ${job.status}`;
                 document.getElementById("jobDescription").innerHTML = job.description.replace(/\n/g, "<br>");
                 document.getElementById("jobLink").href = job.link;
@@ -213,9 +213,12 @@ document.addEventListener("DOMContentLoaded", function(){
                 const jobs = data.jobs || [];
                 const job = jobs.find((j) => j.id == selectedJobId);
                 if(job) {
-                    job.notes.push({note, data: new Date().toLocaleString()});
+                    const today = new Date ();
+                    const formattedDate = `${today.getDate()}/${today.getMonth()+1}/${today.getFullYear()}`
+
+                    job.notes.push({ note, date: formattedDate });
                     chrome.storage.local.set({jobs}, function() {
-                        loadJobNotes(jobs);
+                        loadJobNotes(job);
                         noteInput.value = "";
                     });
                 }
@@ -229,13 +232,14 @@ document.addEventListener("DOMContentLoaded", function(){
     function loadJobNotes(job) {
         const notesList = document.getElementById("notesList");
         notesList.innerHTML = "";
-
         job.notes.forEach((noteData, index) => {
             const li = document.createElement("li");
             li.innerHTML = `
             <div class="note-content">
-            <span class="note-text">${noteData.note}</span>
-            <span class="note-date">${noteData.date}</span>
+                <span class="note-text">${noteData.note}</span> 
+                <br>
+                <span class="note-date">${noteData.date}</span>
+                <br>
             </div>
             <button class="editNoteBtn" data-index"${index}">✏️</button>
             <button class="deleteNoteBtn" data-index"${index}">🗑</button>
