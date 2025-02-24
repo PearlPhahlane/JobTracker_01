@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function(){
     const jobLinkInput = document.getElementById("jobLinkInput");
     const jobStatusInput = document.getElementById("jobStatusInput");
     const saveJobBtn = document.getElementById("saveJob");
+    const cancelSaveBtn = document.getElementById("cancelSave");
     const jobListView = document.getElementById("jobListView");
     const jobList = document.getElementById("jobList");
     const jobDetailView = document.getElementById("jobDetailView");
@@ -31,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     //Hide jobDetailView on Initial Load
     jobDetailView.style.display = "none";
+    cancelSaveBtn.style.display = "none"
 
     //stores the currently selected job ID
     let selectedJobId = null;
@@ -183,6 +185,11 @@ document.addEventListener("DOMContentLoaded", function(){
          });
     });
 
+    //cancel save button that will take me to the job list view when clicked
+    cancelSaveBtn.addEventListener("click", function() {
+        showView("jobListView")
+    });
+
     //show job details
     jobList.addEventListener("click", function(e) {
         if(e.target.classList.contains("viewBtn")){
@@ -304,11 +311,16 @@ document.addEventListener("DOMContentLoaded", function(){
         jobDetailView.style.display = view === "jobDetailView"? "block" : "none";
 
         //show or hide add new button based on the current view
-
         addJobButtonContainer.style.display = view === "jobListView" ? "block" : "none";
 
-        //scroll to the top of the page when changing views
+        //handle visibility of cancelSaveBtn
+        if (view === "addJobView") {
+            cancelSaveBtn.style.display = "inline-block"
+        } else {
+            cancelSaveBtn.style.display = "none"
+        }
 
+        //scroll to the top of the page when changing views
         window.scrollTo(0,0);
     }
 
