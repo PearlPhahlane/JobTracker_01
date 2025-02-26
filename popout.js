@@ -46,12 +46,19 @@ document.addEventListener("DOMContentLoaded", function(){
                 const li = document.createElement("li");
                 li.dataset.id = job.id;
                 li.innerHTML = `
-                    <strong>${job.title}</strong> (${job.date})&nbsp;&nbsp;
-                    <div class="job-status">Status: ${job.status}</div>
-                    <div class="job-actions">
-                        <button class="viewBtn" title="View Details">🔍</button>
-                        <button class="deleteBtn" title="Delete Job">❌</button>
+                    <div class="job-item">
+                        <div class="job-container">
+                            <strong>${job.title}</strong> (${job.date})&nbsp;&nbsp;
+                            <div class="job-status"><strong>Status:</strong> ${job.status}</div>
+                            <div class="job-actions">
+                        </div> 
+                            <div>   
+                                <button class="viewBtn" title="View Details">🔍</button>
+                                <button class="deleteBtn" title="Delete Job">❌</button>
+                            <div>
                     </div>`;
+                    
+                    
                 jobList.appendChild(li);
 
                 //add click event listner for view button

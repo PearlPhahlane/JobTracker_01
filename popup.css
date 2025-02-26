@@ -23,17 +23,57 @@ button {
     border-radius: 5px;
 }
 
+/* the unordered list of items*/
 ul {
     list-style: none;
     padding: 0;
+    margin: 0;
+    width: 100%;
 }
 
+/* individual list of job items and note items*/
 li {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px;
+    gap: 10px;
+}*
+
+/* Wrapper for title, date, and status */
+.job-container {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    gap: 20px;
     border-bottom: 1px solid #ccc;
+}
+
+/* Title */
+li strong {
+    flex: 2;
+    min-width: 200px;
+    text-align: left;
+}
+
+/* Date */
+.job-date {
+    flex: 1;
+    min-width: 120px;
+    text-align: center;
+    color: #555;
+}
+
+/* Status */
+.job-status {
+    flex: 2;
+    text-align: left;
+    min-width: 180px;
+}
+
+/* Button Container */
+.job-actions {
+    display: flex;
+    gap: 5px;
 }
 
 input, select, textarea {
@@ -87,10 +127,12 @@ textarea {
     padding: 10px;
     font-size: 14px;
     line-height: 1.5;
+   
 }
 
 .note-content {
     display: flex;
+    border-bottom: 1px solid #ccc;
 }
 
 .editNoteBtn, .deleteNoteBtn {
