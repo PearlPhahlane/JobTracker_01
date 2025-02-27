@@ -16,6 +16,8 @@ document.addEventListener("DOMContentLoaded", function(){
     const noteInput = document.getElementById("noteInput");
     const backToListBtn = document.getElementById("backToList");
 
+
+    //This is to make the help icon to be clickable
     document.getElementById("helpIcon").addEventListener("click", function() {
         chrome.tabs.create( { url: "help.html"})
     })
