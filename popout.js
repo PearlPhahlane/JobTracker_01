@@ -16,6 +16,10 @@ document.addEventListener("DOMContentLoaded", function(){
     const noteInput = document.getElementById("noteInput");
     const backToListBtn = document.getElementById("backToList");
 
+    document.getElementById("helpIcon").addEventListener("click", function() {
+        chrome.tabs.create( { url: "help.html"})
+    })
+
     //I've created an add new job button that shows only when we click on the back to list button
     const addJobButtonContainer = document.createElement('div');
     addJobButtonContainer.style.marginBottom = "10px";
