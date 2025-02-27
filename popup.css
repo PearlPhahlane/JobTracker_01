@@ -13,6 +13,13 @@ body {
     padding-bottom: 10px;
 }
 
+#helpIcon {
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: 10px;
+    color: #007bff;
+}
+
 button {
     margin-top: 10px;
     padding: 10px 20px;
