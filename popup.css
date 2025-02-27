@@ -41,6 +41,14 @@ button {
     background-color: #007bff;
     color: white;
     border-radius: 5px;
+    transition: transform .2s; /* Animation */
+}
+
+button:hover {
+    transform: scale(1.2);
+    background-color: #ccc;
+    color: #007bff;
+
 }
 
 /* the unordered list of items*/
