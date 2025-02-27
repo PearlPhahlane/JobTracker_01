@@ -28,8 +28,18 @@ document.addEventListener("DOMContentLoaded", function(){
     addJobButtonContainer.style.display = "none" //ensure that the button is initially hidden
     addJobButtonContainer.innerHTML = `
         <button id="addNewJobBtn" style="background-color: #4CAF50; color: White; 
-        padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer">Add New Job</button>`;
+        padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer; transition: backgound-color 0.3s ease">Add New Job</button>`;
     jobList.parentNode.insertBefore(addJobButtonContainer, jobList);
+
+    const addNewJobBtn = document.getElementById("addNewJobBtn");
+
+    addNewJobBtn.addEventListener("mouseover", function () {
+      addNewJobBtn.style.backgroundColor = "orange"; // 
+    });
+
+    addNewJobBtn.addEventListener("mouseout", function () {
+      addNewJobBtn.style.backgroundColor = "#4CAF50"; // Original color
+    });
 
     //select the above button and add event listner 
     document.getElementById("addNewJobBtn").addEventListener("click", function(){
@@ -54,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function(){
                 li.innerHTML = `
                     <div class="job-item">
                         <div class="job-container">
-                            <strong>${job.title}</strong> (${job.date})&nbsp;&nbsp;
+                            <strong>${job.title}</strong> ${job.date}&nbsp;&nbsp;
                             <div class="job-status"><strong>Status:</strong> ${job.status}</div>
                             <div class="job-actions">
                         </div> 
