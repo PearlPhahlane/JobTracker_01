@@ -3,27 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Job Tracker helps you organize your job applications and never lose track of opportunities">
     <title>Job Tracker - Help</title>
     <link rel="stylesheet" href="help.css">
+    <link href="https://cdn.lineicons.com/5.0/lineicons.css" rel="stylesheet" />
 </head>
 <body>
-    <h1>How to Use Job Tracker</h1>
-    <p>Welcome to Job Tracker! Here's how you can use it:</p>
-    <ul>
-        <li>Click the extension icon to open the job tracker.</li>
-        <li>Enter job details and click "Save Job" to add it to your list.</li>
-        <li>Click on a saved job to view details and add notes.</li>
-        <li>Update the job status to keep track of your progress.</li>
-    </ul>
+    <header>
+        <h1 class="header-title">Job Tracker</h1>
+    </header>
 
-    <!-- AdSense Placeholder for later 
-    <div class="ad-container">
-        <p>Ad Space (Google AdSense will go here)</p>
-    </div>
+    <main>
+        <!-- Landing Page -->
+        <section class="landing-page-container" aria-label="Introduction to Job Tracker">
+            <div class="job-tracker-intro">
+                <p class="introducing">
+                    <span>Introducing</span>
+                </p>
+                <h2 class="job-tracker">
+                    <span>Job Tracker</span>
+                </h2>
+            </div>
+            
+            <img class="job-tracker-image" src="images/job-tracker.png" alt="Job Tracker extension screenshot" loading="lazy">
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script> -->
+            <a href="#features-section" class="cta-button">Learn how to use it</a>
+        </section>
+
+        <!-- Why Job Tracker -->
+        <section class="motto" aria-label="Why use Job Tracker">
+            <img id="applying" src="images/job-search.png" alt="Abstract job search background" loading="lazy">
+            <div class="why-job-tracker">
+                <h2>Your Job Tracking Companion</h2>
+                <p>Never lose track of your job applications again! This extension keeps everything organized, so you're always prepared when opportunity calls. Say goodbye to lost emails and forgotten applications—stay in control of your job hunt!</p>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section id="features-section" aria-label="Key Features">
+            <div class="key-features">
+                <h2 class="header-features">Key Features</h2>
+            </div>
+            <div class="features-grid">
+                <article class="feature-card">
+                    <h3>Job Application Management</h3>
+                    <p>Save and track job details easily. Alerts notify you of missing fields. View jobs in the latest-first order, update their status, and delete them with confirmation.</p>
+                </article>
+                
+                <article class="feature-card">
+                    <h3>Notes Management</h3>
+                    <p>Add, edit, and delete notes in the job details view. Notes include timestamps and persist even after refreshing.</p>
+                </article>
+
+                <article class="feature-card">
+                    <h3>Job Data Management</h3>
+                    <p>Jobs are stored in Chrome's local storage for easy access. Changes update instantly, and deleted jobs are removed permanently.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- How to use -->
+        <section id="instructions" aria-label="How to use Job Tracker">
+            <div class="instructions-container">
+                <h2 class="instructions-header">How To Use Job Tracker</h2>
+                <div class="instructions-content">
+                    <ol>
+                        <li>Click the extension icon to open the job tracker.</li>
+                        <li>Enter job details and click "Save Job" to add it to your list.</li>
+                        <li>Click on a saved job to view details and add notes.</li>
+                        <li>Update the job status to keep track of your progress.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="video-placeholder">
+                <video width="400" height="300" controls aria-label="Job Tracker demonstration video">
+                    <source src="your-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+
+        <!-- About the creator -->
+        <section id="about-the-creator" aria-label="About the creator">
+            <h2 class="about-creator-header">About The Creator</h2>
+            <div class="about-content">
+                <p>Hi, I'm Pearl, a Junior Front-End Developer and Certified Software Tester. After months of job searching with no clear plan, I found myself overwhelmed—losing track of applications, forgetting follow-ups, and struggling to stay organized. I knew there had to be a better way.</p>
+                <p>That's when I decided to build Job Tracker—a simple yet powerful tool to help job seekers keep everything in one place. With this extension, I can log job applications, update statuses, and track progress with ease. My goal? To finally check off some of those applications as <strong>"Hired!"</strong> and help others do the same.</p>
+                <p>I hope this tool makes your job search more structured, less stressful, and ultimately, more successful.</p>
+                <p>Happy job hunting!</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>If you have any feedback about this tool, I'd be happy to connect!</p>
+
+        <div class="contact-container">
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/pearl-motaung-9aa607104/" class="linkedin" target="_blank" aria-label="My LinkedIn profile">
+                <i class="lni lni-linkedin"></i>
+            </a>
+        </div>
+    </footer>
 </body>
 </html>
