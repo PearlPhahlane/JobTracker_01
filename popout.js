@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function(){
                 //status dropdown
                 const statusDropdown = document.createElement("select");
                 statusDropdown.id = "statusDropdown";
-                ["Awaiting Response", "Successful", "Unsuccessful"].forEach(
+                ["Awaiting Response", "Received Response", "Unsuccessful", "Hired"].forEach(
                     (status) => {
                         const option = document.createElement("option");
                         option.value = status;
