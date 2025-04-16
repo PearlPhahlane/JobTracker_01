@@ -17,6 +17,21 @@
         <h1 class="header-title">Job Tracker</h1>
     </header>
 
+    <nav class="navbar">
+        
+        <button class="hamburger" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="#features-section">Features</a></li>
+            <li><a href="#instructions">How to Use</a></li>
+            <li><a href="#about-the-creator">About</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
+    </nav>
+
     <main>
         <!-- Landing Page -->
         <section class="landing-page-container" aria-label="Introduction to Job Tracker">
@@ -123,5 +138,14 @@
             <p>&#169;2025</p>
         </div>
     </footer>
+<script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+    });
+</script>
 </body>
 </html>
